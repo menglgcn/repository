@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button#get").click(function(){
+    $.get("servlet/hello",function(data,status){
+      alert("数据：" + data + "\n状态：" + status);
+    });
+  });
+  
+   $("button#post").click(function(){
+    $.post("servlet/hello", {
+    name:"eric",
+    city:"shanghai",
+    info:{ age:23,
+    sex:"boy"
+    }
+  },function(data,status){
+      alert("数据：" + data + "\n状态：" + status);
+    });
+  }); 
+  
+});
+</script>
+</head>
+<body>
+
+<button id="get">向页面发送 HTTP GET 请求，然后获得返回的结果</button>
+<button id="post">向页面发送 HTTP post 请求，然后获得返回的结果</button>
+</body>
+</html>
